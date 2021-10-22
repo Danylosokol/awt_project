@@ -1,0 +1,390 @@
+* {
+    font-family: 'Roboto', 'Lato', serif, sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    background-color: #979797;
+    color: white;
+    width: 100%;
+}
+
+.main {
+    background-color: #232225;
+    height: 100%;
+    margin: 4.5rem auto 0 auto;
+    min-height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.articles {
+    background-color: #232225;
+    height: 100%;
+    margin: 4.5rem 0 0 auto;
+    min-height: 100vh;
+    overflow: hidden;
+    width: 75vw;
+}
+
+@media screen and (max-width: 1010px) {
+    .articles {
+        width: 100vw;
+    }
+
+    aside {
+        display: none;
+    }
+}
+
+.header {
+    background-color: #404040;
+    color: white;
+    max-height: 4.5rem;
+    padding: 1rem;
+    position: fixed;
+    text-overflow: ellipsis;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.header h1 {
+    display: inline;
+    font-size: 2.25rem;
+}
+
+svg {
+    fill: white;
+    height: auto;
+    margin-right: 1rem;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+    visibility: hidden;
+    width: 2.5rem;
+}
+
+svg:hover {
+    fill: #BDBDBD;
+    transform: rotateY(180deg);
+}
+
+svg:active {
+    fill: #979797;
+}
+
+
+#mainPagePhoto {
+    background-image: url("../../fig/asking-alexandria.jpeg");
+    background-repeat: no-repeat;
+    height: calc(100vh - 4.25rem);
+    width: 100vw;
+}
+
+#mainPagePhoto p {
+    color: black;
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 10% 5% 0 45%;
+}
+
+@media screen and (max-width: 1025px) {
+    #mainPagePhoto p {
+        font-size: 2.25rem;
+    }
+
+    #mainPagePhoto {
+        background-position: -10rem 0;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #mainPagePhoto p {
+        font-size: 2rem;
+    }
+
+    #mainPagePhoto {
+        background-position: -12rem 0;
+        background-size: 200%;
+    }
+}
+
+@media screen and (max-width: 635px) {
+    #mainPagePhoto p {
+        font-size: 1.5rem;
+    }
+
+    #mainPagePhoto {
+        background-position: -6rem 0;
+    }
+}
+
+.nextSection {
+    animation: scale;
+    animation-direction: alternate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    background: #000;
+    border-radius: 50%;
+    bottom: 2rem;
+    box-shadow: .25rem .25rem 1rem #232225;
+    display: block;
+    font-size: 4rem;
+    font-weight: 800;
+    height: 5rem;
+    position: fixed;
+    right: 2rem;
+    text-align: center;
+    width: 5rem;
+    z-index: 1;
+}
+
+@supports (-moz-appearance:none) {
+    .nextSection {
+        font-size: 3rem;
+    }
+}
+
+@keyframes scale {
+    from {
+        background: #000;
+    }
+    to {
+        background: #979797;
+    }
+}
+
+#nameOfSection {
+    font-size: 4rem;
+    font-weight: 500;
+    height: 5rem;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100vw;
+}
+
+#articles {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    min-height: calc(100vh - 16rem);
+}
+
+.newsCard {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: .25rem .25rem 1rem #000;
+    height: 23rem;
+    margin: 1.5rem;
+    padding: .2em;
+    transition-duration: 1s;
+    transition-property: all;
+    width: 16rem;
+}
+
+.newsCard:hover {
+    background-color: #BDBDBD;
+    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+
+.newsCard:active {
+    background-color: #979797;
+}
+
+.cardLink, .cardLink:hover, .cardLink:active {
+    color: black;
+}
+
+.newsCard img {
+    border-radius: 1rem;
+    display: block;
+    height: 12rem;
+    margin: 0 auto .5em auto;
+    object-fit: cover;
+    width: 100%;
+}
+
+.newsText {
+    font-size: .9rem;
+    margin: 1rem .5rem 0 .5rem;
+    padding: 0;
+}
+
+.cardHeader {
+    font-size: 1.3rem;
+    margin: 1.5rem .5rem 0 .5rem;
+}
+
+footer {
+    background-color: #404040;
+    color: white;
+    height: 2rem;
+    padding: 1rem;
+    z-index: 2;
+}
+
+aside {
+    position: fixed;
+    top: 5rem;
+    width: 25vw;
+}
+
+.asideMenu {
+    box-sizing: border-box;
+    height: auto;
+    padding: .25rem;
+}
+
+.side {
+    background-color: #232225;
+    border-radius: 1rem;
+    box-shadow: .05rem .05rem 1rem #000;
+    box-sizing: border-box;
+    color: #979797;
+    display: inline-block;
+    font-size: 1.25em;
+    margin: 0 0 .5rem 0;
+    padding: 1rem;
+    width: 100%;
+}
+
+.side a:hover, .side:hover {
+    color: white;
+}
+
+.active {
+    background-color: #404040;
+    color: white;
+}
+
+.advCard {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: .25rem .25rem 1rem #000;
+    height: 14rem;
+    margin: 0 0 0 .5rem;
+    padding: .2em;
+    transition: 1s;
+    width: 13rem;
+}
+
+.advCard:hover {
+    box-shadow: .25rem .25rem 1rem #fff;
+}
+
+.advCard img {
+    border-radius: 1rem;
+    display: block;
+    height: 8rem;
+    margin: 0 auto .5em auto;
+    object-fit: contain;
+    width: 100%;
+}
+
+.advHeader {
+    font-size: 1rem;
+    margin: 1.25rem .25rem 0 .25rem;
+}
+
+a, a:hover, a:focus, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #BDBDBD;
+}
+
+a:active {
+    color: #979797;
+}
+
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: .5em 0 .5em 0;
+}
+
+h2 {
+    clear: right;
+    font-size: 2em;
+    margin: 1em 0 .5em 0;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 1em 0 .5em 0;
+}
+
+
+p {
+    font-size: 1.25em;
+    margin: .5em;
+}
+
+.articlePicture {
+    float: right;
+}
+
+img {
+    border-radius: 1rem;
+    margin: 0 2em;
+}
+
+figcaption {
+    color: #BDBDBD;
+    text-align: center;
+}
+
+.mainPicture {
+    display: block;
+    height: auto;
+    margin: 0 auto 0 auto;
+    width: 30vw;
+}
+
+@media screen and (max-width: 720px) {
+    .mainPicture {
+        height: auto;
+        width: 75vw;
+    }
+}
+
+article {
+    padding: 0 3em 0 3em;
+}
+
+ul {
+    list-style-type: square;
+    margin-left: 2em;
+}
+
+ol {
+    list-style-type: upper-roman;
+    margin-left: 2em;
+}
+
+.tableContainer {
+    overflow-x: auto;
+}
+
+table, th, td {
+    border: .1rem solid white;
+    border-collapse: collapse;
+    margin: 0.5em;
+    padding: .5em;
+    text-align: center;
+}
+
+td {
+    color: #BDBDBD;
+}
