@@ -2,7 +2,7 @@
     font-family: 'Roboto', 'Lato', serif, sans-serif;
     margin: 0;
     padding: 0;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 5.05rem;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 .main {
     background-color: #232225;
     height: 100%;
-    margin: 4.5rem auto 0 auto;
+    margin: 5.05rem auto 0 auto;
     min-height: 100vh;
     overflow: hidden;
     width: 100vw;
@@ -23,7 +23,7 @@ body {
 .articles {
     background-color: #232225;
     height: 100%;
-    margin: 4.5rem 0 0 auto;
+    margin: 5.05rem 0 0 auto;
     min-height: 100vh;
     overflow: hidden;
     width: 75vw;
@@ -42,7 +42,7 @@ body {
 .header {
     background-color: #404040;
     color: white;
-    max-height: 4.5rem;
+    max-height: 5.05rem;
     padding: 1rem;
     position: fixed;
     text-overflow: ellipsis;
@@ -80,7 +80,7 @@ svg:active {
 #mainPagePhoto {
     background-image: url("../../fig/asking-alexandria.jpeg");
     background-repeat: no-repeat;
-    height: calc(100vh - 4.25rem);
+    height: calc(100vh - 5.05rem);
     width: 100vw;
 }
 
@@ -160,13 +160,15 @@ svg:active {
 }
 
 #new_articles{
-    min-height: calc(100vh - 4.25rem);
+    box-sizing: border-box;
+    min-height: calc(100vh - 5.05rem);
 }
 
 #nameOfSection {
     text-align: center;
-    padding:  1rem;
     font-size: 4rem;
+    padding: 1.25rem;
+    margin: 0;
 }
 
 #articles {
@@ -232,15 +234,16 @@ svg:active {
 #comments_img{
     background-image: url('../../fig/rock-band.jpeg');
     width: 50vw;
-    height: 80vh;
+    height: calc(100vh - 9.55rem);
     background-size: cover;
     background-position: 0 20%;
     float: left;
 }
 
 .form{
-    width: calc(50vw - .5rem);
-    height: calc(80vh - .5rem);
+    box-sizing: border-box;
+    width: 50vw;
+    height: calc(100vh - 9.55rem);
     background: #979797;
     float: right;
     font-size: 1.25rem;
@@ -259,7 +262,7 @@ svg:active {
 }
 
 .check_labels{
-    color: #232225;
+    color: #404040;
     font-size: 1.2rem;
 }
 
@@ -301,7 +304,7 @@ textarea:focus, input:focus{
 }
 
 input:invalid, textarea:invalid{
-    border: 1px solid red;
+    border: 2px solid #977869;
 }
 
 input:required, textarea:required{
@@ -312,7 +315,7 @@ input:required, textarea:required{
     background-color: white;
     width: 7rem;
     height: 2rem;
-    margin: 1rem 2rem 1rem 0;
+    margin: 1rem 2rem 0 0;
     font-size: 1.25rem;
     font-weight: 400;
 }
@@ -329,7 +332,8 @@ input:required, textarea:required{
 footer {
     background-color: #404040;
     color: white;
-    height: 2rem;
+    height: 4.5rem;
+    box-sizing: border-box;
     padding: 1rem;
     z-index: 2;
 }
