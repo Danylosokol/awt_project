@@ -159,13 +159,14 @@ svg:active {
     }
 }
 
+#new_articles{
+    min-height: calc(100vh - 4.25rem);
+}
+
 #nameOfSection {
-    font-size: 4rem;
-    font-weight: 500;
-    height: 5rem;
-    padding: 1rem 0;
     text-align: center;
-    width: 100vw;
+    padding:  1rem;
+    font-size: 4rem;
 }
 
 #articles {
@@ -173,7 +174,7 @@ svg:active {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    min-height: calc(100vh - 16rem);
+    height: 100%;
 }
 
 .newsCard {
@@ -221,6 +222,108 @@ svg:active {
 .cardHeader {
     font-size: 1.3rem;
     margin: 1.5rem .5rem 0 .5rem;
+}
+
+#comments{
+    width: 100%;
+    height: 100%;
+}
+
+#comments_img{
+    background-image: url('../../fig/rock-band.jpeg');
+    width: 50vw;
+    height: 80vh;
+    background-size: cover;
+    background-position: 0 20%;
+    float: left;
+}
+
+.form{
+    width: calc(50vw - .5rem);
+    height: calc(80vh - .5rem);
+    background: #979797;
+    float: right;
+    font-size: 1.25rem;
+    padding: .25rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1022px) {
+    #comments_img{
+        display: none;
+    }
+    .form{
+        width: calc(100vw - .5rem);
+        height: 100%;
+    }
+}
+
+.check_labels{
+    color: #232225;
+    font-size: 1.2rem;
+}
+
+.form h1{
+    text-align: center;
+    color: #F0F0F0;
+}
+
+.form label{
+    display: inline-block;
+    margin: .5rem .25rem .5rem 0;
+}
+
+.first_part{
+    width: 11rem;
+}
+
+input, textarea{
+    border: 0 solid;
+    border-radius: 1rem;
+    padding: .25rem;
+    font-size: 1rem;
+    background-color: #F0F0F0;
+    color: #232225;
+}
+
+input[type=radio], input[type=checkbox]{
+    margin-right: 1rem;
+}
+
+textarea{
+    max-width: 20rem;
+    max-height: 4rem;
+    margin-left: 11.5rem;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input:invalid, textarea:invalid{
+    border: 1px solid red;
+}
+
+input:required, textarea:required{
+    background-color: white;
+}
+
+.form_buttons{
+    background-color: white;
+    width: 7rem;
+    height: 2rem;
+    margin: 1rem 2rem 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.form_buttons:hover{
+    background-color: #BDBDBD;
+}
+
+.form_buttons:active{
+    background-color: #000;
+    color: white;
 }
 
 footer {

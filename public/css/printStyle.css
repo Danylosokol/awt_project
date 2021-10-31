@@ -102,6 +102,10 @@ svg {
     padding: 0;
 }
 
+.form{
+    display: none;
+}
+
 footer {
     color: white;
     font-size: 1rem;
