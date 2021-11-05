@@ -68,7 +68,7 @@
             </div>
         </nav>
     </section>
-    <section id="comments">
+    <section id="comments_form">
         <div id="comments_img"></div>
         <div class="form">
             <h1>Váš komentár</h1>
@@ -82,7 +82,7 @@
                     <input id="email" type="email" name="email" required/>
                 </div>
                 <div>
-                    <label for="image" class="first_part">Obrázok:</label>
+                    <label for="image" class="first_part">Profilový obrázok:</label>
                     <input id="image" type="url" name="image"/>
                 </div>
                 <div>
@@ -91,30 +91,30 @@
                     <textarea id="comment" required></textarea>
                 </div>
                 <div>
-                    Najobľúbenejšia značka slúchadiel:
+                    Preferovaná značka slúchadiel:
                     <div class="check_labels">
-                    <label for="apple">Apple</label>
-                    <input id="apple" type="radio" name="brand" value="apple"/>
-                    <label for="marshall">Marshall</label>
-                    <input id="marshall" type="radio" name="brand" value="marshall"/>
-                    <label for="sony">Sony</label>
-                    <input id="sony" type="radio" name="brand" value="sony">
-                    <label for="samsung">Samsung</label>
-                    <input id="samsung" type="radio" name="brand" value="samsung">
-                    <label for="jbl">JBL</label>
-                    <input id="jbl" type="radio" name="brand" value="jbl">
+                        <label for="apple">Apple</label>
+                        <input id="apple" type="radio" name="brand" value="apple"/>
+                        <label for="marshall">Marshall</label>
+                        <input id="marshall" type="radio" name="brand" value="marshall"/>
+                        <label for="sony">Sony</label>
+                        <input id="sony" type="radio" name="brand" value="sony">
+                        <label for="samsung">Samsung</label>
+                        <input id="samsung" type="radio" name="brand" value="samsung">
+                        <label for="jbl">JBL</label>
+                        <input id="jbl" type="radio" name="brand" value="jbl">
                     </div>
                 </div>
                 <div>
                     <datalist id="genres">
-                        <option value="Rock">Rock</option>
-                        <option value="Pop">Pop</option>
-                        <option value="Rap">Rap</option>
-                        <option value="Klasiká">Klasiká</option>
-                        <option value="Džez">Džez</option>
-                        <option value="Heavy metal">Heavy metal</option>
+                        <option value="Rock">rock</option>
+                        <option value="Pop">pop</option>
+                        <option value="Rap">rap</option>
+                        <option value="Klasiká">klasiká</option>
+                        <option value="Džez">džez</option>
+                        <option value="Heavy metal">heavy metal</option>
                     </datalist>
-                    <label for="music_geners" class="short-label">Najobľúbenejší žáner hudby:</label>
+                    <label for="music_geners" class="short-label">Preferovaný žáner hudby:</label>
                     <input type="text" id="music_geners" name="music_genres" list="genres"/>
                 </div>
                 <div class="check_labels">
@@ -124,8 +124,28 @@
                     <input id="bot_check" type="checkbox"/>
                 </div>
                 <input class="form_buttons" type="submit"/>
-                <input class="form_buttons" type="reset"/>
+                <input class="form_buttons" type="reset" value="Resetovať"/>
             </form>
+        </div>
+    </section>
+    <section id="comments">
+        <h1>Komentáre</h1>
+        <div class="comment">
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                 class="profile_photo" alt="user profile picture">
+            <div class="comment_info">
+                <h3>Danylo</h3>
+                <p class="comment_email">dansokol677@gmail.com</p>
+                <p class="comment_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut felis in ex
+                    pretium
+                    elementum vel eget justo. Aenean at hendrerit nunc, a efficitur mauris. Donec fermentum tellus
+                    dolor, sit
+                    amet fringilla tellus feugiat quis. Aenean metus neque, scelerisque sit amet vestibulum ut,
+                    pellentesque eu
+                    dui. Donec nec enim ipsum. </p>
+                <p class="add_info">Preferovaná značka slúchadiel: Sony</p>
+                <p class="add_info">Preferovaný žáner hudby: Rock</p>
+            </div>
         </div>
     </section>
 </main>
@@ -137,3 +157,6 @@
 <script src="main.js"></script>
 </body>
 </html>
+
+
+

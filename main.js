@@ -61,7 +61,7 @@ window.onload = function () {
 
 let nextSectionButton = document.querySelector(".nextSection");
 let articles = document.getElementById("nameOfSection");
-let comment = document.getElementById("comments");
+let comment = document.getElementById("comments_form");
 let content;
 
 if (nextSectionButton !== null) {
@@ -69,7 +69,7 @@ if (nextSectionButton !== null) {
         if (window.scrollY >= articles.getBoundingClientRect().top &&
             window.scrollY < comment.getBoundingClientRect().top &&
             nextSectionButton.textContent === "\u22C1") {
-            nextSectionButton.href="#comments"
+            nextSectionButton.href="#comments_form"
         } else if (window.scrollY >= articles.getBoundingClientRect().top &&
             window.scrollY < comment.getBoundingClientRect().top &&
             nextSectionButton.textContent === "\u22C0") {
