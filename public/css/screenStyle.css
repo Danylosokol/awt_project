@@ -228,7 +228,7 @@ svg:active {
 
 #comments_form{
     width: 100%;
-    height: calc(100vh - 9.55rem);
+    height: calc(100vh - 5rem);
 }
 
 #comments_img{
@@ -509,6 +509,10 @@ table, th, td {
 
 td {
     color: #BDBDBD;
+}
+
+.comment{
+    margin-bottom: 2em;
 }
 
 #comments{

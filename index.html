@@ -72,7 +72,7 @@
         <div id="comments_img"></div>
         <div class="form">
             <h1>Váš komentár</h1>
-            <form action="#" method="GET" id="myForm">
+            <form id="myForm">
                 <div>
                     <label for="name" class="first_part">Meno:</label>
                     <input id="name" type="text" name="username" required/>
@@ -130,21 +130,24 @@
     </section>
     <section id="comments">
         <h1>Komentáre</h1>
-        <div class="comment">
-            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                 class="profile_photo" alt="user profile picture">
-            <div class="comment_info">
-                <h3>Danylo</h3>
-                <p class="comment_email">dansokol677@gmail.com</p>
-                <p class="comment_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut felis in ex
-                    pretium
-                    elementum vel eget justo. Aenean at hendrerit nunc, a efficitur mauris. Donec fermentum tellus
-                    dolor, sit
-                    amet fringilla tellus feugiat quis. Aenean metus neque, scelerisque sit amet vestibulum ut,
-                    pellentesque eu
-                    dui. Donec nec enim ipsum. </p>
-                <p class="add_info">Preferovaná značka slúchadiel: Sony</p>
-                <p class="add_info">Preferovaný žáner hudby: Rock</p>
+        <div id="commentList">
+            <div class="comment">
+                <img src="././fig/profile_picture.webp"
+                     class="profile_photo" alt="user profile picture">
+                <div class="comment_info">
+                    <h3>Danylo</h3>
+                    <p class="comment_email">dansokol677@gmail.com</p>
+                    <p class="comment_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut felis in
+                        ex
+                        pretium
+                        elementum vel eget justo. Aenean at hendrerit nunc, a efficitur mauris. Donec fermentum tellus
+                        dolor, sit
+                        amet fringilla tellus feugiat quis. Aenean metus neque, scelerisque sit amet vestibulum ut,
+                        pellentesque eu
+                        dui. Donec nec enim ipsum. </p>
+                    <p class="add_info">Preferovaná značka slúchadiel: Sony</p>
+                    <p class="add_info">Preferovaný žáner hudby: Rock</p>
+                </div>
             </div>
         </div>
     </section>
@@ -154,7 +157,7 @@
     <br/>
     <a href="mailto:danylo.sokol@student.tuke.sk" target="_blank">danylo.sokol@student.tuke.sk</a>
 </footer>
-<script src="main.js"></script>
+<script src="main.js" type="module"></script>
 </body>
 </html>
 
