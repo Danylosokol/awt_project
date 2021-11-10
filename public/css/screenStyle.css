@@ -344,6 +344,80 @@ input[type=reset]{
     color: white;
 }
 
+.comment{
+    margin-bottom: 2em;
+}
+
+#comments{
+    background: #BDBDBD;
+    box-sizing: content-box;
+    color: #000;
+    display: block;
+    padding: 2rem;
+    width: 100%;
+}
+
+#comments h1{
+    text-align: center;
+}
+
+#comments h3{
+    line-height: 0;
+    margin: 1rem 0;
+    padding: 0;
+    width: 75%;
+}
+
+#comments p{
+    padding: 0;
+    width: 75%;
+}
+
+.comment_info{
+    display: inline-block;
+    width: 75%;
+}
+
+.comment_text{
+    display: inline-block;
+    font-size: 1.15rem;
+    margin: 0 0 .5rem 0;
+}
+
+@media screen and (max-width: 665px){
+    .comment_info{
+        width: 60%;
+    }
+    #comments p{
+        width: 100%;
+    }
+    .profile_photo{
+        height: 2.25rem;
+        width: 2.25rem;
+    }
+}
+
+.comment_email, .add_info{
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0;
+    opacity: 50%;
+}
+
+.profile_photo{
+    border-radius: 50%;
+    display: inline-block;
+    height: 5rem;
+    object-fit: cover;
+    vertical-align: top;
+    width: 5rem;
+}
+
+.first_comment{
+    font-size: 1rem;
+    opacity: 50%;
+}
+
 footer {
     background-color: #404040;
     box-sizing: border-box;
@@ -509,73 +583,4 @@ table, th, td {
 
 td {
     color: #BDBDBD;
-}
-
-.comment{
-    margin-bottom: 2em;
-}
-
-#comments{
-    background: #BDBDBD;
-    color: #000;
-    width: 100%;
-    display: block;
-    box-sizing: content-box;
-    padding: 2rem;
-}
-
-#comments h1{
-    text-align: center;
-}
-
-#comments h3{
-    line-height: 0;
-    margin: 1rem 0;
-    padding: 0;
-    width: 75%;
-}
-
-#comments p{
-    padding: 0;
-    width: 75%;
-}
-
-.comment_info{
-    width: 75%;
-    display: inline-block;
-}
-
-.comment_text{
-    display: inline-block;
-    font-size: 1.15rem;
-    margin: 0 0 .5rem 0;
-}
-
-@media screen and (max-width: 665px){
-    .comment_info{
-        width: 60%;
-    }
-    #comments p{
-        width: 100%;
-    }
-    .profile_photo{
-        width: 2.25rem;
-        height: 2.25rem;
-    }
-}
-
-.comment_email, .add_info{
-    display: inline-block;
-    margin: 0;
-    opacity: 50%;
-    font-size: 1rem;
-}
-
-.profile_photo{
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    object-fit: cover;
-    display: inline-block;
-    vertical-align: top;
 }

@@ -131,25 +131,6 @@
     <section id="comments">
         <h1>Komentáre</h1>
         <div id="commentList">
-            <div class="comment">
-                <!--
-                <img src="././fig/profile_picture.webp"
-                     class="profile_photo" alt="user profile picture">
-                <div class="comment_info">
-                    <h3>Danylo</h3>
-                    <p class="comment_email">dansokol677@gmail.com</p>
-                    <p class="comment_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut felis in
-                        ex
-                        pretium
-                        elementum vel eget justo. Aenean at hendrerit nunc, a efficitur mauris. Donec fermentum tellus
-                        dolor, sit
-                        amet fringilla tellus feugiat quis. Aenean metus neque, scelerisque sit amet vestibulum ut,
-                        pellentesque eu
-                        dui. Donec nec enim ipsum. </p>
-                    <p class="add_info">Preferovaná značka slúchadiel: Sony</p>
-                    <p class="add_info">Preferovaný žáner hudby: Rock</p>
-                </div>-->
-            </div>
         </div>
     </section>
 </main>
@@ -163,7 +144,7 @@
     <div class="comment">
         <img src="{{image}}" class="profile_photo" alt="user profile picture">
         <div class="comment_info">
-            <h3>{{name}} {{botCheck}}</h3>
+            <h3>{{name}} <span id="check_bot">{{botCheck}}</span></h3>
             <p class="comment_email">{{email}}</p>
             <p class="comment_text">{{text}}</p>
             <p class="add_info">Preferovaná značka slúchadiel: {{brand}}</p>
@@ -174,6 +155,27 @@
 </script>
 </body>
 </html>
+
+
+<!--
+<div class="comment">
+<img src="././fig/profile_picture.webp"
+     class="profile_photo" alt="user profile picture">
+<div class="comment_info">
+    <h3>Danylo</h3>
+    <p class="comment_email">dansokol677@gmail.com</p>
+    <p class="comment_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut felis in
+        ex
+        pretium
+        elementum vel eget justo. Aenean at hendrerit nunc, a efficitur mauris. Donec fermentum tellus
+        dolor, sit
+        amet fringilla tellus feugiat quis. Aenean metus neque, scelerisque sit amet vestibulum ut,
+        pellentesque eu
+        dui. Donec nec enim ipsum. </p>
+    <p class="add_info">Preferovaná značka slúchadiel: Sony</p>
+    <p class="add_info">Preferovaný žáner hudby: Rock</p>
+</div>
+</div>-->
 
 
 

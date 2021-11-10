@@ -9,6 +9,7 @@ export default class OpinionsHandlerMustache extends OpinionsHandler{
     }
 
     commentToHtml(comment){
+
         const Comment = {
             name: comment.name,
             email: comment.email,
