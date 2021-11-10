@@ -132,6 +132,7 @@
         <h1>Komentáre</h1>
         <div id="commentList">
             <div class="comment">
+                <!--
                 <img src="././fig/profile_picture.webp"
                      class="profile_photo" alt="user profile picture">
                 <div class="comment_info">
@@ -147,7 +148,7 @@
                         dui. Donec nec enim ipsum. </p>
                     <p class="add_info">Preferovaná značka slúchadiel: Sony</p>
                     <p class="add_info">Preferovaný žáner hudby: Rock</p>
-                </div>
+                </div>-->
             </div>
         </div>
     </section>
@@ -158,6 +159,19 @@
     <a href="mailto:danylo.sokol@student.tuke.sk" target="_blank">danylo.sokol@student.tuke.sk</a>
 </footer>
 <script src="main.js" type="module"></script>
+<script id="mustacheTemplate" type="text/template">
+    <div class="comment">
+        <img src="{{image}}" class="profile_photo" alt="user profile picture">
+        <div class="comment_info">
+            <h3>{{name}} {{botCheck}}</h3>
+            <p class="comment_email">{{email}}</p>
+            <p class="comment_text">{{text}}</p>
+            <p class="add_info">Preferovaná značka slúchadiel: {{brand}}</p>
+            <p class="add_info">Preferovaný žáner hudby: {{gener}}</p>
+            <p class="add_info">{{newsletter}}</p>
+        </div>
+    </div>
+</script>
 </body>
 </html>
 

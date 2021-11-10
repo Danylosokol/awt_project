@@ -1,6 +1,12 @@
-import OpinionsHandler from "/opinionsHandler.js";
+/*
+import OpinionsHandler from "./opinionsHandler.js";
 
 window.opnsHndlr = new OpinionsHandler("myForm", "commentList");
+window.opnsHndlr.init();
+*/
+import OpinionsHandlerMustache from "./opinionsHandlerMustache.js"
+
+window.opnsHndlr = new OpinionsHandlerMustache("myForm", "commentList", "mustacheTemplate");
 window.opnsHndlr.init();
 
 window.onload = function () {
