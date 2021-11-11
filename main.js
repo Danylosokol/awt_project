@@ -4,7 +4,11 @@ import OpinionsHandler from "./opinionsHandler.js";
 window.opnsHndlr = new OpinionsHandler("myForm", "commentList");
 window.opnsHndlr.init();
 */
-import OpinionsHandlerMustache from "./opinionsHandlerMustache.js"
+window.onload = function () {
+    document.querySelector("svg").style.visibility = "visible";
+}
+
+import OpinionsHandlerMustache from "./opinionsHandlerMustache.js";
 window.opnsHndlr = new OpinionsHandlerMustache("myForm", "commentList", "mustacheTemplate");
 window.opnsHndlr.init();
 if(window.opnsHndlr.commentsElement.innerHTML === ""){
@@ -17,7 +21,4 @@ if(window.opnsHndlr.commentsElement.innerHTML === ""){
 import NextSectionHandler from "./nextSectionHandler.js"
 window.nextSection = new NextSectionHandler(".nextSection", "nameOfSection", "comments_form");
 
-window.onload = function () {
-    document.querySelector("svg").style.visibility = "visible";
-}
 

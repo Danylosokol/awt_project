@@ -60,7 +60,9 @@ export default class OpinionsHandler{
         this.commentsElement.innerHTML += this.commentToHtml(newComment);
 
         this.commentsForm.reset();
-        document.getElementById("first_comment").style.visibility = "hidden";
+        if(document.getElementById("first_comment") !== null) {
+            document.getElementById("first_comment").style.visibility = "hidden";
+        }
     }
 
     commentToHtml(comment){
