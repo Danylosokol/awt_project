@@ -7,7 +7,7 @@ window.opnsHndlr.init();
 window.onload = function () {
     document.querySelector("svg").style.visibility = "visible";
 }
-
+/*
 import OpinionsHandlerMustache from "./opinionsHandlerMustache.js";
 window.opnsHndlr = new OpinionsHandlerMustache("myForm", "commentList", "mustacheTemplate");
 window.opnsHndlr.init();
@@ -20,5 +20,13 @@ if(window.opnsHndlr.commentsElement.innerHTML === ""){
 
 import NextSectionHandler from "./nextSectionHandler.js"
 window.nextSection = new NextSectionHandler(".nextSection", "nameOfSection", "comments_form");
+*/
+import mainMenuHandler from "./mainMenu.js"
+window.mainMenu = new mainMenuHandler("hamburgerIcon", "menu_links");
+
+import Router from "./paramHashRouter.js";
+import Routes from "./routes.js";
+
+window.router = new Router(Routes,"#opinions");
 
 

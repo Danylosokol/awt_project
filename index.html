@@ -10,10 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body id="body">
 <header class="header">
-    <nav>
+    <nav class="top_nav">
         <a href="index.html">
             <svg viewBox="0 0 477.867 477.867">
                 <path d="M238.933,0C107.036,0.151,0.151,107.036,0,238.933v187.733c0,28.277,22.923,51.2,51.2,51.2h68.267
@@ -24,9 +25,29 @@
             </svg>
             <h1>Všetko o slúchadlách</h1>
         </a>
+        <div id="top_menu">
+            <div id="menu_links">
+                <a href="#about">O nás</a>
+                <a href="#articles/1">Články</a>
+                <a href="#addComment">Pridať komentár</a>
+                <a href="#opinions">Komentáre</a>
+            </div>
+            <a id="hamburgerIcon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
     </nav>
 </header>
-<main class="main">
+<main class="main" id="router-view">
+</main>
+<footer>
+    <a href="https://github.com/Danylosokol" target="_blank">Danylo Sokol</a>
+    <br/>
+    <a href="mailto:danylo.sokol@student.tuke.sk" target="_blank">danylo.sokol@student.tuke.sk</a>
+</footer>
+
+<script src="main.js" type="module"></script>
+<script id="template-about" type="text/template">
     <div id="mainPagePhoto">
         <p>
             Dobré slúchadlá sú už k dispozícii takmer všetkým. Dokonca aj s pomerne skromným rozpočtom nájdete
@@ -35,39 +56,29 @@
             populárnych modelov, zbierky, najnovšie správy.
         </p>
     </div>
-    <a class="nextSection" href="#nameOfSection">&#8897;</a>
+</script>
+<script id="template-articles" type="text/template">
     <section id="new_articles">
-        <h1 id="nameOfSection">Najnovšie články</h1>
-        <nav id="articles">
-            <div class="newsCard">
-                <a href="article1.html" class="cardLink">
-                    <img src="fig/first_news_photo.jpg" alt="Image of headphones"/>
-                    <h2 class="cardHeader">5 najlepších bezdrôtových slúchadiel</h2>
-                    <p class="newsText">Keď kupujete slúchadlá podľa popiskov v obchode a spoliehate sa na rady od
-                        predavača,
-                        je to vždy ako lotéria. Máte 50% šancu, že...</p>
-                </a>
-            </div>
-            <div class="newsCard">
-                <a href="article2.html" class="cardLink">
-                    <img src="fig/nothing.jpeg" alt="Image of nothing headphones"/>
-                    <h2 class="cardHeader">NOTHING EAR 1</h2>
-                    <p class="newsText">Nová značka bývalého riaditeľa OnePlus Carla Peiho po mnohých klebetách a
-                        únikoch
-                        konečne predstavila svoj prvý produkt - Nothing Ear TWS (1). Slúchadla dostali...</p>
-                </a>
-            </div>
-            <div class="newsCard">
-                <a href="article3.html" class="cardLink">
-                    <img src="fig/sony.webp" alt="Image of sony headphones"/>
-                    <h2 class="cardHeader">Najlacnejšie slúchadlá TWS od Sony</h2>
-                    <p class="newsText">Spoločnosť Sony Electronics zaradila do svojho sortimentu bezdrôtové slúchadlá
-                        WF-C500.
-                        Na pripojenie používajú...</p>
-                </a>
-            </div>
+        <h1 id="nameOfSection">Články</h1>
+        <nav id="article">
+            {{#articles}}
+            <article class="newsCard">
+                <h2 class="cardHeader">{{title}}</h2>
+                <p class="newsText">Autor: {{author}}</p>
+            </article>
+            {{/articles}}
+            <nav class="next_page">
+                {{#prevPage}}
+                <a href="#articles/{{prevPage}}">&#60;</a>
+                {{/prevPage}}
+                {{#nextPage}}
+                <a href="#articles/{{nextPage}}">&#62;</a>
+                {{/nextPage}}
+            </nav>
         </nav>
     </section>
+</script>
+<script id="template-form" type="text/template">
     <section id="comments_form">
         <div id="comments_img"></div>
         <div class="form">
@@ -128,31 +139,34 @@
             </form>
         </div>
     </section>
+</script>
+<script id="template-comments" type="text/template">
     <section id="comments">
         <h1>Komentáre</h1>
         <div id="commentList">
+            {{#.}}
+            <div class="comment">
+                <img src="{{image}}" class="profile_photo" alt="user profile picture">
+                <div class="comment_info">
+                    <h3>{{name}} <span id="check_bot">{{botCheck}}</span></h3>
+                    <p class="comment_email">{{email}}</p>
+                    <p class="comment_text">{{text}}</p>
+                    <p class="add_info">Preferovaná značka slúchadiel: {{brand}}</p>
+                    <p class="add_info">Preferovaný žáner hudby: {{gener}}</p>
+                    <p class="add_info">{{newsletter}}</p>
+                </div>
+            </div>
+            {{/.}}
+            {{^.}}
+            <p class="first_comment" id="first_comment">Žiadne komentáre. Buďte prvý, kto zanechá komentár.</p>
+            {{/.}}
         </div>
     </section>
-</main>
-<footer>
-    <a href="https://github.com/Danylosokol" target="_blank">Danylo Sokol</a>
-    <br/>
-    <a href="mailto:danylo.sokol@student.tuke.sk" target="_blank">danylo.sokol@student.tuke.sk</a>
-</footer>
-<script src="main.js" type="module"></script>
-<script id="mustacheTemplate" type="text/template">
-    <div class="comment">
-        <img src="{{image}}" class="profile_photo" alt="user profile picture">
-        <div class="comment_info">
-            <h3>{{name}} <span id="check_bot">{{botCheck}}</span></h3>
-            <p class="comment_email">{{email}}</p>
-            <p class="comment_text">{{text}}</p>
-            <p class="add_info">Preferovaná značka slúchadiel: {{brand}}</p>
-            <p class="add_info">Preferovaný žáner hudby: {{gener}}</p>
-            <p class="add_info">{{newsletter}}</p>
-        </div>
-    </div>
 </script>
+<!--
+<script id="mustacheTemplate" type="text/template">
+
+</script>-->
 </body>
 </html>
 
@@ -177,5 +191,34 @@
 </div>
 </div>-->
 
+<!--
+            <div class="newsCard">
+                <a href="article1.html" class="cardLink">
+                    <img src="fig/first_news_photo.jpg" alt="Image of headphones"/>
+                    <h2 class="cardHeader">5 najlepších bezdrôtových slúchadiel</h2>
+                    <p class="newsText">Keď kupujete slúchadlá podľa popiskov v obchode a spoliehate sa na rady od
+                        predavača,
+                        je to vždy ako lotéria. Máte 50% šancu, že...</p>
+                </a>
+            </div>
+            <div class="newsCard">
+                <a href="article2.html" class="cardLink">
+                    <img src="fig/nothing.jpeg" alt="Image of nothing headphones"/>
+                    <h2 class="cardHeader">NOTHING EAR 1</h2>
+                    <p class="newsText">Nová značka bývalého riaditeľa OnePlus Carla Peiho po mnohých klebetách a
+                        únikoch
+                        konečne predstavila svoj prvý produkt - Nothing Ear TWS (1). Slúchadla dostali...</p>
+                </a>
+            </div>
+            <div class="newsCard">
+                <a href="article3.html" class="cardLink">
+                    <img src="fig/sony.webp" alt="Image of sony headphones"/>
+                    <h2 class="cardHeader">Najlacnejšie slúchadlá TWS od Sony</h2>
+                    <p class="newsText">Spoločnosť Sony Electronics zaradila do svojho sortimentu bezdrôtové slúchadlá
+                        WF-C500.
+                        Na pripojenie používajú...</p>
+                </a>
+            </div>
+            -->
 
-
+<!--<a class="nextSection" href="#nameOfSection">&#8897;</a>-->

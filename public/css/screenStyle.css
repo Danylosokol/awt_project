@@ -7,15 +7,16 @@
 
 body {
     background-color: #979797;
+    box-sizing: border-box;
     color: white;
-    width: 100%;
+    width: 100vw;
 }
 
 .main {
     background-color: #232225;
     height: 100%;
     margin: 5.05rem auto 0 auto;
-    min-height: 100vh;
+    min-height: 100%;
     overflow: hidden;
     width: 100vw;
 }
@@ -41,19 +42,27 @@ body {
 
 .header {
     background-color: #404040;
+    box-sizing: border-box;
     color: white;
-    max-height: 5.05rem;
+    min-height: 5.05rem;
     padding: 1rem;
     position: fixed;
     text-overflow: ellipsis;
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 1;
+    overflow: auto;
 }
 
 .header h1 {
     display: inline;
     font-size: 2.25rem;
+}
+
+.top_nav{
+    box-sizing: border-box;
+    width: 100vw;
+    overflow: hidden
 }
 
 svg {
@@ -76,6 +85,39 @@ svg:active {
     fill: #979797;
 }
 
+#hamburgerIcon i {
+    /*
+    animation: scale;
+    animation-direction: alternate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;*/
+    font-size: 3rem;
+    line-height: 3rem;
+    position: absolute;
+    right: 3rem;
+    top: 1rem;
+}
+
+@media screen and (max-width: 550px){
+    #hamburgerIcon i{
+        font-size: 2rem;
+        right: 2rem;
+    }
+}
+
+#menu_links{
+    display: none;
+    width: 100vw;
+}
+
+#menu_links a{
+    display: block;
+    text-align: center;
+    width: 100vw;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
 
 #mainPagePhoto {
     background-image: url("../../fig/asking-alexandria.jpeg");
@@ -133,7 +175,7 @@ svg:active {
     border-radius: 50%;
     bottom: 2rem;
     box-shadow: .25rem .25rem 1rem #232225;
-    display: block;
+    display: none;
     font-size: 4rem;
     font-weight: 800;
     height: 5rem;
@@ -152,10 +194,10 @@ svg:active {
 
 @keyframes scale {
     from {
-        background: #000;
+        color: #000;
     }
     to {
-        background: #979797;
+        color: #fff;
     }
 }
 
@@ -171,9 +213,10 @@ svg:active {
     margin: 0;
 }
 
-#articles {
+#article {
     align-items: center;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     height: 100%;
@@ -183,12 +226,13 @@ svg:active {
     background-color: white;
     border-radius: 1rem;
     box-shadow: .25rem .25rem 1rem #000;
-    height: 23rem;
+    color: black;
+    height: auto;
     margin: 1.5rem;
-    padding: .2em;
+    padding: 1em;
     transition-duration: 1s;
     transition-property: all;
-    width: 16rem;
+    width: 50%;
 }
 
 .newsCard:hover {
@@ -201,7 +245,7 @@ svg:active {
 .newsCard:active {
     background-color: #979797;
 }
-
+/*
 .cardLink, .cardLink:hover, .cardLink:active {
     color: black;
 }
@@ -214,7 +258,7 @@ svg:active {
     object-fit: cover;
     width: 100%;
 }
-
+*/
 .newsText {
     font-size: .9rem;
     margin: 1rem .5rem 0 .5rem;
@@ -223,7 +267,16 @@ svg:active {
 
 .cardHeader {
     font-size: 1.3rem;
-    margin: 1.5rem .5rem 0 .5rem;
+    margin: 0 .5rem 0 .5rem;
+}
+
+.next_page{
+    font-size: 5rem;
+}
+
+.next_page a{
+    display: inline-block;
+    margin: 0 1rem;
 }
 
 #comments_form{
@@ -355,6 +408,7 @@ input[type=reset]{
     display: block;
     padding: 2rem;
     width: 100%;
+    min-height: 100vw;
 }
 
 #comments h1{
