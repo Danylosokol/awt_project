@@ -91,9 +91,9 @@ svg:active {
     position: absolute;
     right: 3rem;
     top: 1rem;
-    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -105,16 +105,26 @@ svg:active {
 }
 
 #menu_links {
-    background: #232225;
+    background-color: transparent;
     display: none;
     height: 100vh;
-    opacity: 95%;
-    padding-top: 10rem;
+    padding-top: 15rem;
     position: fixed;
     right: 0;
     top: 0;
     width: 100vw;
-    z-index: 1;
+}
+
+#menu_links::before {
+    background: #232225;
+    content: "";
+    height: 100vh;
+    opacity: 95%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100vw;
+    z-index: -1;
 }
 
 #menu_links a {
@@ -122,9 +132,9 @@ svg:active {
     font-size: 1.75rem;
     padding: 0.5rem;
     text-align: center;
-    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
     width: 100vw;
 }
@@ -247,14 +257,15 @@ svg:active {
 
 .newsCard:hover {
     background-color: #bdbdbd;
-    transform: scale(1.1);
     -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .newsCard:active {
     background-color: #979797;
 }
+
 /*
 .cardLink, .cardLink:hover, .cardLink:active {
     color: black;
@@ -281,17 +292,17 @@ svg:active {
 }
 
 .next_page {
-    font-size: 3rem;
-    -webkit-user-select: none;
+    font-size: 2.5rem;
     -moz-user-select: none;
     -ms-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
 .next_page a {
     display: inline-block;
     font-size: 3rem;
-    margin: 0 1rem;
+    margin: 0 .25rem;
 }
 
 #comments_form {
@@ -342,11 +353,13 @@ svg:active {
     #comments_img {
         display: none;
     }
+
     .form {
         height: 100%;
         padding: 1rem;
         width: 100vw;
     }
+
     .check_labels {
         font-size: 1.1rem;
     }
@@ -462,9 +475,11 @@ input[type="reset"] {
     .comment_info {
         width: 60%;
     }
+
     #comments p {
         width: 100%;
     }
+
     .profile_photo {
         height: 2.25rem;
         width: 2.25rem;

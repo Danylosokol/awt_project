@@ -16,7 +16,6 @@ export default class Router {
 
             let hashParts = hash.split("/");
             const matchingRoute = this.routes.find(route => route.hash === hashParts[0]);
-            console.log(matchingRoute);
 
             if (matchingRoute) {
                 hashParts.shift();

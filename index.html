@@ -28,7 +28,7 @@
         <div id="top_menu">
             <div id="menu_links">
                 <a href="#about">O nás</a>
-                <a href="#articles/1">Články</a>
+                <a href="#articles/1/1">Články</a>
                 <a href="#addComment">Pridať komentár</a>
                 <a href="#opinions">Komentáre</a>
             </div>
@@ -68,13 +68,19 @@
             </article>
             {{/articles}}
             <nav class="next_page">
+                {{#goFirst}}
+                <a href="#articles/{{goFirst}}/{{totalPageCount}}">&#171;</a>
+                {{/goFirst}}
                 {{#prevPage}}
-                <a href="#articles/{{prevPage}}">&#60;</a>
+                <a href="#articles/{{prevPage}}/{{totalPageCount}}">&#60;</a>
                 {{/prevPage}}
-                {{currentPage}}
+                {{currentPage}}/{{totalPageCount}}
                 {{#nextPage}}
-                <a href="#articles/{{nextPage}}">&#62;</a>
+                <a href="#articles/{{nextPage}}/{{totalPageCount}}">&#62;</a>
                 {{/nextPage}}
+                {{#goLast}}
+                <a href="#articles/{{goLast}}/{{totalPageCount}}">&#187;</a>
+                {{/goLast}}
             </nav>
         </nav>
     </section>

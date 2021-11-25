@@ -8,6 +8,6 @@ window.mainMenu = new mainMenuHandler("hamburgerIcon", "menu_links");
 import Router from "./paramHashRouter.js";
 import Routes from "./routes.js";
 
-window.router = new Router(Routes,"#about");
+window.router = new Router(Routes,"#articles/1/1");
 
 

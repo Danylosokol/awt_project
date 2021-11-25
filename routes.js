@@ -47,7 +47,7 @@ function createHtml4opinions(targetElm){
     );
 }
 
-function fetchAndDisplayArticles(targetElm, current){
+function fetchAndDisplayArticles(targetElm, current, totalPageCount){
     current=parseInt(current);
     let offset = (current*20) - 20;
     const url = "https://wt.kpi.fei.tuke.sk/api/article/?max=20&offset=" + offset;
@@ -55,17 +55,20 @@ function fetchAndDisplayArticles(targetElm, current){
     function reqListener () {
         if (this.status === 200) {
             let response = JSON.parse(this.responseText);
+            totalPageCount = Math.ceil(response.meta.totalCount/20);
             const data = {
                 currentPage:current,
-                articles: response.articles
+                articles: response.articles,
+                totalPageCount: totalPageCount
             }
-
-            if(response.articles.length === 20){
-                data.nextPage=current+1;
-            }
-
             if(current>1){
                 data.prevPage=current-1;
+                data.goFirst = 1;
+            }
+
+            if(current < totalPageCount){
+                data.nextPage=current+1;
+                data.goLast = totalPageCount;
             }
 
             document.getElementById(targetElm).innerHTML =
