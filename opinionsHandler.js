@@ -1,20 +1,3 @@
-/*export default class OpinionsHandler{
-    constructor(commentForm, commentContainer){
-        this.comments = [];
-        this.commentsElement = document.getElementById(commentContainer);
-        this.commentsForm = document.getElementById(commentForm);
-    }
-
-    init(){
-        if(localStorage.Comments){
-            this.comments = JSON.parse(localStorage.Comments);
-        }
-
-        this.commentsElement.innerHTML = this.commentsArrayToHtml(this.comments);
-
-        this.commentsForm.addEventListener("submit", event=>this.processCommentFrmData(event));
-    }*/
-
 export default function processCommentFrmData(event){
     event.preventDefault();
 
@@ -61,31 +44,5 @@ export default function processCommentFrmData(event){
     comments.push(newComment);
     localStorage.Comments = JSON.stringify(comments);
     window.location.hash = "opinions";
-    /*
-    this.commentsElement.innerHTML += this.commentToHtml(newComment);
 
-    this.commentsForm.reset();
-    if (document.getElementById("first_comment") !== null) {
-        document.getElementById("first_comment").style.visibility = "hidden";
-    }*/
 }
-/*
-    commentToHtml(comment){
-        return `<div class="comment">
-                <img src="${comment.image}" class="profile_photo" alt="user profile picture">
-                <div class="comment_info">
-                    <h3>${comment.name} ${comment.botCheck ? "&#10003;" : "&#10007;"}</h3> 
-                    <p class="comment_email">${comment.email}</p>
-                    <p class="comment_text">${comment.text}</p>
-                    <p class="add_info">Preferovaná značka slúchadiel: ${comment.brand}</p>
-                    <p class="add_info">Preferovaný žáner hudby: ${comment.gener}</p>
-                    <p class="add_info">${comment.newsletter ? "Odoberá newsletter" : "Neododberá newsletter"}</p>
-                </div>
-                </div>`;
-    }
-
-    commentsArrayToHtml(array){
-        return array.reduce((htmlWithComments, comment) => htmlWithComments + this.commentToHtml(comment), "");
-    }
-}*/
-

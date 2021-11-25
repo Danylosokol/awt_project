@@ -1,5 +1,5 @@
 * {
-    font-family: 'Roboto', 'Lato', serif, sans-serif;
+    font-family: "Roboto", "Lato", serif, sans-serif;
     margin: 0;
     padding: 0;
     scroll-padding-top: 5.05rem;
@@ -45,13 +45,13 @@ body {
     box-sizing: border-box;
     color: white;
     min-height: 5.05rem;
+    overflow: hidden;
     padding: 1rem;
     position: fixed;
     text-overflow: ellipsis;
     top: 0;
     width: 100vw;
     z-index: 1;
-    overflow: auto;
 }
 
 .header h1 {
@@ -59,10 +59,10 @@ body {
     font-size: 2.25rem;
 }
 
-.top_nav{
+.top_nav {
     box-sizing: border-box;
+    overflow: hidden;
     width: 100vw;
-    overflow: hidden
 }
 
 svg {
@@ -77,7 +77,7 @@ svg {
 }
 
 svg:hover {
-    fill: #BDBDBD;
+    fill: #bdbdbd;
     transform: rotateY(180deg);
 }
 
@@ -86,43 +86,53 @@ svg:active {
 }
 
 #hamburgerIcon i {
-    /*
-    animation: scale;
-    animation-direction: alternate;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;*/
     font-size: 3rem;
     line-height: 3rem;
     position: absolute;
     right: 3rem;
     top: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-@media screen and (max-width: 550px){
-    #hamburgerIcon i{
+@media screen and (max-width: 550px) {
+    #hamburgerIcon i {
         font-size: 2rem;
         right: 2rem;
     }
 }
 
-#menu_links{
+#menu_links {
+    background: #232225;
     display: none;
+    height: 100vh;
+    opacity: 95%;
+    padding-top: 10rem;
+    position: fixed;
+    right: 0;
+    top: 0;
     width: 100vw;
+    z-index: 1;
 }
 
-#menu_links a{
+#menu_links a {
     display: block;
-    text-align: center;
-    width: 100vw;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     padding: 0.5rem;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100vw;
 }
 
 #mainPagePhoto {
     background-image: url("../../fig/asking-alexandria.jpeg");
-    object-fit: fill;
     height: calc(100vh - 5.05rem);
+    object-fit: fill;
     width: 100vw;
 }
 
@@ -174,7 +184,7 @@ svg:active {
     background: #000;
     border-radius: 50%;
     bottom: 2rem;
-    box-shadow: .25rem .25rem 1rem #232225;
+    box-shadow: 0.25rem 0.25rem 1rem #232225;
     display: none;
     font-size: 4rem;
     font-weight: 800;
@@ -186,7 +196,7 @@ svg:active {
     z-index: 1;
 }
 
-@supports (-moz-appearance:none) {
+@supports (-moz-appearance: none) {
     .nextSection {
         font-size: 3rem;
     }
@@ -201,16 +211,16 @@ svg:active {
     }
 }
 
-#new_articles{
+#new_articles {
     box-sizing: border-box;
     min-height: calc(100vh - 5.05rem);
 }
 
 #nameOfSection {
-    text-align: center;
     font-size: 4rem;
-    padding: 1.25rem;
     margin: 0;
+    padding: 1.25rem;
+    text-align: center;
 }
 
 #article {
@@ -218,14 +228,14 @@ svg:active {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
     height: 100%;
+    justify-content: space-around;
 }
 
 .newsCard {
     background-color: white;
     border-radius: 1rem;
-    box-shadow: .25rem .25rem 1rem #000;
+    box-shadow: 0.25rem 0.25rem 1rem #000;
     color: black;
     height: auto;
     margin: 1.5rem;
@@ -236,7 +246,7 @@ svg:active {
 }
 
 .newsCard:hover {
-    background-color: #BDBDBD;
+    background-color: #bdbdbd;
     transform: scale(1.1);
     -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
@@ -260,32 +270,37 @@ svg:active {
 }
 */
 .newsText {
-    font-size: .9rem;
-    margin: 1rem .5rem 0 .5rem;
+    font-size: 0.9rem;
+    margin: 1rem 0.5rem 0 0.5rem;
     padding: 0;
 }
 
 .cardHeader {
     font-size: 1.3rem;
-    margin: 0 .5rem 0 .5rem;
+    margin: 0 0.5rem 0 0.5rem;
 }
 
-.next_page{
-    font-size: 5rem;
+.next_page {
+    font-size: 3rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.next_page a{
+.next_page a {
     display: inline-block;
+    font-size: 3rem;
     margin: 0 1rem;
 }
 
-#comments_form{
-    width: 100%;
+#comments_form {
     height: calc(100vh - 5rem);
+    width: 100%;
 }
 
-#comments_img{
-    background-image: url('../../fig/rock-band.jpeg');
+#comments_img {
+    background-image: url("../../fig/rock-band.jpeg");
     background-position: 0 20%;
     background-size: cover;
     float: left;
@@ -293,60 +308,61 @@ svg:active {
     width: 50vw;
 }
 
-.form{
+.form {
     background: #979797;
     box-sizing: border-box;
     float: right;
     font-size: 1.25rem;
     font-weight: 500;
     height: 100%;
-    padding: .25rem 1rem;
+    padding: 0.25rem 1rem;
     width: 50vw;
 }
 
-.form h1{
-    color: #F0F0F0;
+.form h1 {
+    color: #f0f0f0;
     text-align: center;
 }
 
-.form label{
+.form label {
     display: inline-block;
-    margin: .5rem .25rem .5rem 0;
+    margin: 0.5rem 0.25rem 0.5rem 0;
 }
 
-.check_labels{
+.check_labels {
     color: #404040;
     font-size: 1.2rem;
 }
 
-.first_part{
+.first_part {
     width: 11rem;
 }
 
 @media screen and (max-width: 1022px) {
-    #comments_img{
+    #comments_img {
         display: none;
     }
-    .form{
+    .form {
         height: 100%;
         padding: 1rem;
         width: 100vw;
     }
-    .check_labels{
+    .check_labels {
         font-size: 1.1rem;
     }
 }
 
-input, textarea{
-    background-color: #F0F0F0;
+input,
+textarea {
+    background-color: #f0f0f0;
     border: 0 solid;
     border-radius: 1rem;
     color: #232225;
     font-size: 1rem;
-    padding: .25rem;
+    padding: 0.25rem;
 }
 
-textarea{
+textarea {
     box-sizing: border-box;
     margin-left: 11.5rem;
     max-height: 4rem;
@@ -354,32 +370,36 @@ textarea{
     min-width: 15rem;
 }
 
-input[type=radio], input[type=checkbox]{
+input[type="radio"],
+input[type="checkbox"] {
     margin-right: 1rem;
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
     outline: none;
 }
 
-input:invalid, textarea:invalid{
+input:invalid,
+textarea:invalid {
     border: 2px solid #977869;
     box-sizing: border-box;
 }
 
-input:required, textarea:required{
+input:required,
+textarea:required {
     background-color: white;
 }
 
-input[type=submit]{
+input[type="submit"] {
     color: #977869;
 }
 
-input[type=reset]{
+input[type="reset"] {
     color: #404040;
 }
 
-.form_buttons{
+.form_buttons {
     background-color: white;
     font-size: 1.25rem;
     font-weight: 400;
@@ -388,77 +408,78 @@ input[type=reset]{
     width: 7rem;
 }
 
-.form_buttons:hover{
-    background-color: #BDBDBD;
+.form_buttons:hover {
+    background-color: #bdbdbd;
 }
 
-.form_buttons:active{
+.form_buttons:active {
     background-color: #000;
     color: white;
 }
 
-.comment{
+.comment {
     margin-bottom: 2em;
 }
 
-#comments{
-    background: #BDBDBD;
+#comments {
+    background: #bdbdbd;
     box-sizing: content-box;
     color: #000;
     display: block;
+    min-height: 71vh;
     padding: 2rem;
     width: 100%;
-    min-height: 100vw;
 }
 
-#comments h1{
+#comments h1 {
     text-align: center;
 }
 
-#comments h3{
+#comments h3 {
     line-height: 0;
     margin: 1rem 0;
     padding: 0;
     width: 75%;
 }
 
-#comments p{
+#comments p {
     padding: 0;
     width: 75%;
 }
 
-.comment_info{
+.comment_info {
     display: inline-block;
     width: 75%;
 }
 
-.comment_text{
+.comment_text {
     display: inline-block;
     font-size: 1.15rem;
-    margin: 0 0 .5rem 0;
+    margin: 0 0 0.5rem 0;
 }
 
-@media screen and (max-width: 665px){
-    .comment_info{
+@media screen and (max-width: 665px) {
+    .comment_info {
         width: 60%;
     }
-    #comments p{
+    #comments p {
         width: 100%;
     }
-    .profile_photo{
+    .profile_photo {
         height: 2.25rem;
         width: 2.25rem;
     }
 }
 
-.comment_email, .add_info{
+.comment_email,
+.add_info {
     display: inline-block;
     font-size: 1rem;
     margin: 0;
     opacity: 50%;
 }
 
-.profile_photo{
+.profile_photo {
     border-radius: 50%;
     display: inline-block;
     height: 5rem;
@@ -467,7 +488,7 @@ input[type=reset]{
     width: 5rem;
 }
 
-.first_comment{
+.first_comment {
     font-size: 1rem;
     opacity: 50%;
 }
@@ -490,23 +511,24 @@ aside {
 .asideMenu {
     box-sizing: border-box;
     height: auto;
-    padding: .25rem;
+    padding: 0.25rem;
 }
 
 .side {
     background-color: #232225;
     border-radius: 1rem;
-    box-shadow: .05rem .05rem 1rem #000;
+    box-shadow: 0.05rem 0.05rem 1rem #000;
     box-sizing: border-box;
     color: #979797;
     display: inline-block;
     font-size: 1.25em;
-    margin: 0 0 .5rem 0;
+    margin: 0 0 0.5rem 0;
     padding: 1rem;
     width: 100%;
 }
 
-.side a:hover, .side:hover {
+.side a:hover,
+.side:hover {
     color: white;
 }
 
@@ -518,67 +540,68 @@ aside {
 .advCard {
     background-color: white;
     border-radius: 1rem;
-    box-shadow: .25rem .25rem 1rem #000;
+    box-shadow: 0.25rem 0.25rem 1rem #000;
     height: 14rem;
-    margin: 0 0 0 .5rem;
-    padding: .2em;
+    margin: 0 0 0 0.5rem;
+    padding: 0.2em;
     transition: 1s;
     width: 13rem;
 }
 
 .advCard:hover {
-    box-shadow: .25rem .25rem 1rem #fff;
+    box-shadow: 0.25rem 0.25rem 1rem #fff;
 }
 
 .advCard img {
     border-radius: 1rem;
     display: block;
     height: 8rem;
-    margin: 0 auto .5em auto;
+    margin: 0 auto 0.5em auto;
     object-fit: contain;
     width: 100%;
 }
 
 .advHeader {
     font-size: 1rem;
-    margin: 1.25rem .25rem 0 .25rem;
+    margin: 1.25rem 0.25rem 0 0.25rem;
 }
 
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
     color: inherit;
     text-decoration: none;
 }
 
 a:hover {
-    color: #BDBDBD;
+    color: #bdbdbd;
 }
 
 a:active {
     color: #979797;
 }
 
-
 h1 {
     font-size: 3em;
     font-weight: bold;
-    margin: .5em 0 .5em 0;
+    margin: 0.5em 0 0.5em 0;
 }
 
 h2 {
     clear: right;
     font-size: 2em;
-    margin: 1em 0 .5em 0;
+    margin: 1em 0 0.5em 0;
 }
 
 h3 {
     font-size: 1.5em;
-    margin: 1em 0 .5em 0;
+    margin: 1em 0 0.5em 0;
 }
-
 
 p {
     font-size: 1.25em;
-    margin: .5em;
+    margin: 0.5em;
 }
 
 .articlePicture {
@@ -591,7 +614,7 @@ img {
 }
 
 figcaption {
-    color: #BDBDBD;
+    color: #bdbdbd;
     text-align: center;
 }
 
@@ -627,14 +650,16 @@ ol {
     overflow-x: auto;
 }
 
-table, th, td {
-    border: .1rem solid white;
+table,
+th,
+td {
+    border: 0.1rem solid white;
     border-collapse: collapse;
     margin: 0.5em;
-    padding: .5em;
+    padding: 0.5em;
     text-align: center;
 }
 
 td {
-    color: #BDBDBD;
+    color: #bdbdbd;
 }
