@@ -39,7 +39,6 @@ function createHtml4opinions(targetElm){
             comment.newsletter = comment.newsletter ? "Odoberá newsletter" : "Neododberá newsletter";
             comment.botCheck = comment.botCheck ? "\u2713" : "\u2717";
         });
-        console.log("check");
     }
 
     document.getElementById(targetElm).innerHTML = Mustache.render(
@@ -60,13 +59,15 @@ function fetchAndDisplayArticles(targetElm, current){
                 currentPage:current,
                 articles: response.articles
             }
-            if(current>1){
-                data.prevPage=current-1;
-            }
 
             if(response.articles.length === 20){
                 data.nextPage=current+1;
             }
+
+            if(current>1){
+                data.prevPage=current-1;
+            }
+
             document.getElementById(targetElm).innerHTML =
                 Mustache.render(
                     document.getElementById("template-articles").innerHTML, data
