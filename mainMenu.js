@@ -16,7 +16,6 @@ export default class mainMenuHandler{
             this.menu.style.display = "block";
             let links = document.querySelectorAll("#menu_links a");
             for(let i = 0; i < links.length; i++){
-                console.log(links[i]);
                 if(links[i].href === document.URL){
                     links[i].style.display = "none";
                 }

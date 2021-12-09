@@ -24,10 +24,25 @@ body {
 .articles {
     background-color: #232225;
     height: 100%;
-    margin: 5.05rem 0 0 auto;
     min-height: 100vh;
     overflow: hidden;
+    padding-bottom: 2rem;
     width: 75vw;
+}
+
+.article-nav{
+    padding: .5rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+.article-nav .fa{
+    font-size: 2.5rem;
+    padding: 0 2rem 1rem 2rem;
+}
+
+.article-nav .fa:hover{
+    color: #979797;
 }
 
 @media screen and (max-width: 1010px) {
@@ -65,7 +80,7 @@ body {
     width: 100vw;
 }
 
-svg {
+#logo-svg {
     fill: white;
     height: auto;
     margin-right: 1rem;
@@ -76,12 +91,12 @@ svg {
     width: 2.5rem;
 }
 
-svg:hover {
+#logo-svg:hover {
     fill: #bdbdbd;
     transform: rotateY(180deg);
 }
 
-svg:active {
+#logo-svg:active {
     fill: #979797;
 }
 
@@ -138,6 +153,15 @@ svg:active {
     user-select: none;
     width: 100vw;
 }
+
+header a:hover, footer a:hover, article a:hover {
+    color: #bdbdbd;
+}
+
+header a:active, footer a:hover, article a:hover {
+    color: #979797;
+}
+
 
 #mainPagePhoto {
     background-image: url("../../fig/asking-alexandria.jpeg");
@@ -243,51 +267,44 @@ svg:active {
 }
 
 .newsCard {
-    background-color: white;
+    background: linear-gradient(to right, #404040 3rem, #f0f0f0 3rem);
     border-radius: 1rem;
     box-shadow: 0.25rem 0.25rem 1rem #000;
     color: black;
     height: auto;
     margin: 1.5rem;
-    padding: 1em;
+    padding: 1em 1em 2em 3rem;
     transition-duration: 1s;
     transition-property: all;
     width: 50%;
 }
 
 .newsCard:hover {
-    background-color: #bdbdbd;
-    -ms-transform: scale(1.1);
+   -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
 
+.articleLink:hover{
+    color: #232225;
+}
 .newsCard:active {
     background-color: #979797;
 }
 
-/*
-.cardLink, .cardLink:hover, .cardLink:active {
-    color: black;
+.contentOfArticle{
+    font-size: 0.8rem;
 }
 
-.newsCard img {
-    border-radius: 1rem;
-    display: block;
-    height: 12rem;
-    margin: 0 auto .5em auto;
-    object-fit: cover;
-    width: 100%;
-}
-*/
 .newsText {
-    font-size: 0.9rem;
-    margin: 1rem 0.5rem 0 0.5rem;
+    color: #404040;
+    font-size: 0.8rem;
+    margin: .5rem 0.5rem 1rem 0.5rem;
     padding: 0;
 }
 
 .cardHeader {
-    font-size: 1.3rem;
+    font-size: 1.75rem;
     margin: 0 0.5rem 0 0.5rem;
 }
 
@@ -375,7 +392,7 @@ textarea {
     padding: 0.25rem;
 }
 
-textarea {
+#comment {
     box-sizing: border-box;
     margin-left: 11.5rem;
     max-height: 4rem;
@@ -434,9 +451,9 @@ input[type="reset"] {
     margin-bottom: 2em;
 }
 
-#comments {
+#comments, #article-comments {
     background: #bdbdbd;
-    box-sizing: content-box;
+    box-sizing: border-box;
     color: #000;
     display: block;
     min-height: 71vh;
@@ -444,18 +461,18 @@ input[type="reset"] {
     width: 100%;
 }
 
-#comments h1 {
+#comments h1, #article-comments h1{
     text-align: center;
 }
 
-#comments h3 {
+#comments h3, #article-comments h3 {
     line-height: 0;
     margin: 1rem 0;
     padding: 0;
     width: 75%;
 }
 
-#comments p {
+#comments p, #article-comments p{
     padding: 0;
     width: 75%;
 }
@@ -476,7 +493,7 @@ input[type="reset"] {
         width: 60%;
     }
 
-    #comments p {
+    #comments p, #article-comments p {
         width: 100%;
     }
 
@@ -503,7 +520,7 @@ input[type="reset"] {
     width: 5rem;
 }
 
-.first_comment {
+.first_comment, #first_article_comment {
     font-size: 1rem;
     opacity: 50%;
 }
@@ -518,7 +535,7 @@ footer {
 }
 
 aside {
-    position: fixed;
+    float: left;
     top: 5rem;
     width: 25vw;
 }
@@ -556,8 +573,9 @@ aside {
     background-color: white;
     border-radius: 1rem;
     box-shadow: 0.25rem 0.25rem 1rem #000;
+    color: #232225;
     height: 14rem;
-    margin: 0 0 0 0.5rem;
+    margin: 1rem 0 1rem 0.5rem;
     padding: 0.2em;
     transition: 1s;
     width: 13rem;
@@ -565,6 +583,11 @@ aside {
 
 .advCard:hover {
     box-shadow: 0.25rem 0.25rem 1rem #fff;
+    color: #232225;
+}
+
+.advCard a:hover{
+    color: #232225;
 }
 
 .advCard img {
@@ -590,7 +613,7 @@ a:active {
 }
 
 a:hover {
-    color: #bdbdbd;
+    color: #232225;
 }
 
 a:active {
@@ -678,3 +701,222 @@ td {
 td {
     color: #bdbdbd;
 }
+
+.hiddenElm{
+    display: none;
+}
+
+#edit{
+    height: 100%;
+    padding: 0;
+    width: 100vw;
+}
+
+#edit h2{
+    font-size: 3rem;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+#music-image{
+    background-image: url("../../fig/music-patern.jpeg");
+    background-position-x: 35%;
+    background-size: 150%;
+    float: left;
+    height: 145vh;
+    opacity: 50%;
+    width: 25%;
+}
+
+#articleForm{
+    box-sizing: border-box;
+    float: right;
+    font-size: 1.25rem;
+    padding: 0 0 0 2rem;
+    width: 75%;
+}
+
+@media screen and (max-width: 805px){
+    #music-image{
+        display: none;
+    }
+    #articleForm{
+        clear: both;
+        width: 100vw;
+    }
+}
+
+#edit-nav{
+    clear: both;
+}
+
+#articleForm input{
+    margin-bottom: 2rem;
+    padding: .5rem;
+}
+
+fieldset{
+    border: .2rem solid #977869;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 75%;
+}
+
+
+#flElm{
+    padding: .5rem;
+}
+
+label[for=content]{
+    display: inline-block;
+    padding-top: 2rem;
+}
+
+#router-comments #article-comments{
+    height: 100%;
+}
+
+#article-comments h1{
+  text-align: center;
+}
+
+#content{
+    height: 50vh;
+    margin: 2rem 0 1rem 1rem;
+    vertical-align: top;
+    width: 50vw;
+}
+
+#articleForm button{
+    background-color: #BDBDBD;
+    color: #232225;
+    font-size: 1.1rem;
+    height: auto;
+    margin-right: 1rem;
+    padding: .5rem 1rem;
+    width: auto;
+}
+
+#articleForm button:hover{
+    background-color: #979797;
+}
+
+.buttons{
+    background-color: #f0f0f0;
+    border: 0;
+    border-radius: 1rem;
+    font-size: 1rem;
+    height: 2rem;
+    padding: .25rem .5rem;
+}
+
+.buttons:hover{
+    background-color: #bdbdbd;
+}
+
+.buttons:active {
+    background-color: #000;
+    color: white;
+}
+
+#comment_form{
+    background-color: #232225;
+    border-radius: 1rem;
+    color: #f0f0f0;
+    display: block;
+    margin: 2rem auto;
+    padding: 1rem;
+    width: 79vw;
+}
+
+#comment_form label{
+    display: inline-block;
+    margin: 1rem;
+}
+
+#commentEdit{
+    border: 0;
+}
+
+#commentEdit input{
+    width: 40%;
+}
+
+
+#commentEdit textarea{
+    width: 50%;
+}
+
+#comment-text{
+    height: 5rem;
+    margin-top: 1rem;
+    padding: .5rem;
+    vertical-align: top;
+    width: 20rem;
+}
+
+#article-commentList .comment{
+    border: .1rem solid #232225;
+    border-radius: 1rem;
+    height: 100%;
+    margin: 1rem auto;
+    overflow-wrap: break-word;
+    padding: .5rem;
+    width: 80vw;
+}
+
+#article-comments .next_page{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.next_page .fa{
+    font-size: 1.95rem;
+}
+
+.contentOfArticle{
+    max-height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.contentOfArticle *{
+    display: none;
+}
+
+.contentOfArticle :first-child:not(img){
+    display: inline-block;
+    max-height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.g-signin2{
+    position: fixed;
+    right: 0;
+    top: 5.05rem;
+    z-index: 0;
+}
+
+#signout-button{
+    background-color: #f0f0f0;
+    border: 0;
+    box-sizing: border-box;
+    color: #404040;
+    height: 2.25rem;
+    padding: .3rem 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 5.05rem;
+    width: 7.5rem;
+}
+
+
+
+

@@ -11,12 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id"
+          content="811883205147-i961go5r1eg8ubraf7orqcgs4lfsqln4.apps.googleusercontent.com" />
+    <script src="https://apis.google.com/js/platform.js?onload=startGSingIn" async defer></script>
+    <script src="https://use.fontawesome.com/4e043bd22f.js"></script>
 </head>
 <body id="body">
 <header class="header">
     <nav class="top_nav">
         <a href="index.html">
-            <svg viewBox="0 0 477.867 477.867">
+            <svg id="logo-svg" viewBox="0 0 477.867 477.867">
                 <path d="M238.933,0C107.036,0.151,0.151,107.036,0,238.933v187.733c0,28.277,22.923,51.2,51.2,51.2h68.267
                             c9.426,0,17.067-7.641,17.067-17.067V290.133c0-9.426-7.641-17.067-17.067-17.067H51.2c-5.828,0.062-11.602,1.13-17.067,3.157
                             v-37.291c0-113.108,91.692-204.8,204.8-204.8s204.8,91.692,204.8,204.8v37.291c-5.465-2.027-11.239-3.095-17.067-3.157H358.4
@@ -31,6 +36,7 @@
                 <a href="#articles/1/1">Články</a>
                 <a href="#addComment">Pridať komentár</a>
                 <a href="#opinions">Komentáre</a>
+                <a href="#artInsert">Pridať nový článok</a>
             </div>
             <a id="hamburgerIcon">
                 <i class="fa fa-bars"></i>
@@ -38,15 +44,22 @@
         </div>
     </nav>
 </header>
+<div id="google-signin-button"
+     class="g-signin2">
+</div>
+<button class="hiddenElm" id="signout-button" onclick="signOut()">Odhlásiť sa</button>
 <main class="main" id="router-view">
+
 </main>
+
 <footer>
     <a href="https://github.com/Danylosokol" target="_blank">Danylo Sokol</a>
     <br/>
     <a href="mailto:danylo.sokol@student.tuke.sk" target="_blank">danylo.sokol@student.tuke.sk</a>
 </footer>
-
+<script src="signin.js"></script>
 <script src="main.js" type="module"></script>
+
 <script id="template-welcome" type="text/template">
     <div id="mainPagePhoto">
         <p>
@@ -57,14 +70,16 @@
         </p>
     </div>
 </script>
+
 <script id="template-articles" type="text/template">
     <section id="new_articles">
         <h1 id="nameOfSection">Články</h1>
         <nav id="article">
             {{#articles}}
             <article class="newsCard">
-                <h2 class="cardHeader">{{title}}</h2>
+                <a class="articleLink" href="{{detailLink}}"> <h2 class="cardHeader">{{title}}</h2>
                 <p class="newsText">Autor: {{author}}</p>
+                <div class="contentOfArticle">{{{content}}}</div></a>
             </article>
             {{/articles}}
             <nav class="next_page">
@@ -85,6 +100,92 @@
         </nav>
     </section>
 </script>
+
+<script id="template-article" type="text/template">
+
+    <aside>
+        <div class="advCard">
+             <a href="https://www.marshallheadphones.com/sk/en/" class="cardLink">
+                 <img src="fig/adv.jpeg" alt="Image of headphones"/>
+                 <h2 class="advHeader">MARSHALL Minor III čierna</h2>
+                 <p class="newsText">128,90 €</p>
+             </a>
+        </div>
+        <div class="advCard">
+            <a href="https://www.marshallheadphones.com/sk/en/" class="cardLink">
+                <img src="fig/Sony-C500.jpeg" alt="Image of headphones"/>
+                <h2 class="advHeader">MARSHALL Minor III čierna</h2>
+                <p class="newsText">128,90 €</p>
+            </a>
+        </div>
+    </aside>
+    <main class="articles">
+        <article>
+            <h1>{{title}}</h1>
+            <p>autor: {{author}}</p>
+            {{#imageLink}}
+            <figure>
+                <img src="{{imageLink}}" alt="image" class="mainPicture"/>
+            </figure>
+            {{/imageLink}}
+            <div>{{{content}}}</div>
+            <p>
+                {{#tags}}
+                Keywords: {{tags}}
+                {{/tags}}
+            </p>
+        </article>
+    </main>
+    <nav class="article-nav">
+    <a href="{{backLink}}" class="linkAsButton"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    <a href="{{editLink}}" class="linkAsButton"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    <a href="{{deleteLink}}" class="linkAsButton"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    <a href="#top" class="linkAsButton"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    </nav>
+    <section id="router-comments"></section>
+</script>
+
+<script id="template-article-comments" type="text/template">
+    <section id="article-comments" class="commentsArt">
+        <h1>Komentáre</h1>
+        <form id="comment_form" >
+            <button class="buttons" type="button" id="addComment">Pridať komentár</button>
+            <fieldset id="commentEdit" class="hiddenElm">
+                <h3>Nový komentár:</h3>
+                <label for="user-name">Meno:</label>
+                <input type="text" name="author" id="user-name" size="50"
+                       maxlength="100" placeholder="napr. Danylo Sokol" required/>
+                <br>
+                <label for="comment-text">Komentár:</label>
+                <textarea id="comment-text" required></textarea>
+                <br><br>
+                <button type="button" class="buttons" id="cancelComment">Odstraniť</button>
+                <button type="submit" class="buttons" id="submitComment">Pridať</button>
+            </fieldset>
+        </form>
+
+        <div id="article-commentList">
+            {{#comments}}
+            <div class="comment">
+                <div class="comment_info">
+                    <h3>{{author}}</h3>
+                    <p class="comment_text">{{text}}</p>
+                </div>
+            </div>
+            {{/comments}}
+        </div>
+        <nav class="next_page">
+            {{#prevPage}}
+            <a href="#artComments/{{id}}/{{offset}}/{{total}}/{{prevPage}}/{{totalPage}}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            {{/prevPage}}
+            {{currentPage}}/{{totalPage}}
+            {{#nextPage}}
+            <a href="#artComments/{{id}}/{{offset}}/{{total}}/{{nextPage}}/{{totalPage}}"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            {{/nextPage}}
+        </nav>
+    </section>
+</script>
+
 <script id="template-form" type="text/template">
     <section id="comments_form">
         <div id="comments_img"></div>
@@ -147,6 +248,7 @@
         </div>
     </section>
 </script>
+
 <script id="template-opinions" type="text/template">
     <section id="comments">
         <h1>Komentáre</h1>
@@ -169,6 +271,64 @@
             {{/.}}
         </div>
     </section>
+</script>
+
+<script id="template-articles-error" type="text/template">
+    <article>
+        <h2>Article(s) acquisition failed</h2>
+        <p>
+            {{errMessage}}
+        </p>
+    </article>
+    <footer><a href="#top" class="linkAsButton">Up to the menu</a></footer>
+
+</script>
+
+<script id="template-article-form" type="text/template">
+    <article id="edit">
+        <div id="music-image"></div>
+        <form id="articleForm">
+            <h2>{{formTitle}}</h2>
+            <label for="author">Autor:</label>
+            <input type="text" name="author" id="author" value="{{author}}" size="50"
+                    maxlength="100" placeholder="napr. Danylo Sokol" required/>
+            <br>
+            <label for="title">Názov článku: </label>
+            <input type="text" name="title" id="title" value="{{title}}" size="50"
+            maxlength="100" pattern="\S[\S\s]*" placeholder="napr. NOTHING EAR 1" required/>
+            <br>
+            <label for="imageLink">Obrázok (url):</label>
+            <input type="url" name="imageLink" id="imageLink" value="{{imageLink}}"
+                size="50" maxlength="100"/>
+            <br>
+            <button type="button" id="btShowFileUpload" class="buttons">Nahrať obrázok</button>
+
+            <fieldset class="added hiddenElm" id="fsetFileUpload">
+                <legend>Image Upload</legend>
+                <input type="file" id="flElm" name="file" accept="image/jpeg,
+                       image.png"/>
+                <br>
+                <button type="button" id="btFileUpload" class="buttons">Odoslať obrázok na server</button>
+                <button type="button" id="btCancelFileUpload" class="buttons">Zrušiť nahrávanie</button>
+            </fieldset>
+            <br>
+            <label for="content">Obsah článku:</label>
+            <textarea name="content" id="content" spellcheck="true" lang="sk" required>
+                {{content}}
+            </textarea>
+            <br>
+            <label for="tags">Keywords:</label>
+            <input type="text" name="tags" id="tags" value="{{tags}}" size="50"
+            placeholder="napr. sluchadla, hudba"/>
+            <br><br>
+            <button type="reset" class="buttons">Resetovať</button>
+            <button type="submit" class="buttons">Nahrať</button>
+            <nav class="article-nav" id="edit-nav">
+                <a href="{{backLink}}" class="linkAsButton"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                <a href="#top" class="linkAsButton"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+            </nav>
+        </form>
+    </article>
 </script>
 </body>
 </html>
