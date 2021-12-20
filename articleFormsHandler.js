@@ -3,7 +3,7 @@ export default class articleFormsHandler {
         this.serverUrl = articlesServerUrl;
     }
 
-    assignFormAndArticle(formElementId, cssClass2hideElement, articleId, offset, totalCount, /*commentPage, pageCount*/){
+    assignFormAndArticle(formElementId, cssClass2hideElement, articleId, offset, totalCount, /*sort, pageCount*/){
         this.cssCl2hideElm = cssClass2hideElement;
         const artForm = document.getElementById(formElementId);
         this.formElements = artForm.elements;
@@ -78,7 +78,6 @@ export default class articleFormsHandler {
 
     processArtEditFrmData(event){
         event.preventDefault();
-
         const articleData = {
             title: this.formElements.namedItem("title").value.trim(),
             content: this.formElements.namedItem("content").value.trim(),

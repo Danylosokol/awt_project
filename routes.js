@@ -10,10 +10,6 @@ export default[
         target:"router-view",
         getTemplate:(targetElm) => {
             document.getElementById(targetElm).innerHTML = document.getElementById("template-welcome").innerHTML
-            /*if(!window.userHandler){
-                window.userHandler = new dataUserHandler();
-            }
-            window.userHandler.assignButtons();*/
         }
     },
     {
@@ -65,7 +61,6 @@ export default[
 
 const urlBase = "https://wt.kpi.fei.tuke.sk/api";
 
-
 function createHtml4opinions(targetElm){
     const commentsFrmStorage=localStorage.Comments;
     let comments=[];
@@ -88,8 +83,9 @@ function createHtml4opinions(targetElm){
 function fetchAndDisplayArticles(targetElm, current, totalPageCount){
     current=parseInt(current);
     let offset = (current*20) - 20;
-    const url = `https://wt.kpi.fei.tuke.sk/api/article/?max=20&offset=${offset}&tag=sluchadla`;
-    /*&tag=sluchadla*/
+    let keyWord = "";
+    const url = `https://wt.kpi.fei.tuke.sk/api/article/?max=20&offset=${offset}${keyWord}`;
+
     function reqListener () {
         if (this.status === 200) {
             let response = JSON.parse(this.responseText);
@@ -168,13 +164,12 @@ function fetchAndProcessArticle(targetElm, artIdFromHash, offsetFromHash, totalC
     function reqListener(){
         if(this.status === 200){
             const responseJSON = JSON.parse(this.responseText);
-           for(let i = 0; i < responseJSON.tags.length; i++){
+            for (let i = 0; i < responseJSON.tags.length; i++) {
                 console.log(responseJSON.tags[i]);
-                if(responseJSON.tags[i] === 'sluchadla'){
-                    responseJSON.tags.splice(i, 1);
-                }
+                    if (responseJSON.tags[i] === 'sluchadla') {
+                        responseJSON.tags.splice(i, 1);
+                    }
             }
-
             if(forEdit){
                 responseJSON.formTitle="Úprava článku";
                 responseJSON.submitBtTitle="Save article";
@@ -188,7 +183,7 @@ function fetchAndProcessArticle(targetElm, artIdFromHash, offsetFromHash, totalC
                 if(!window.artFrmHandler){
                     window.artFrmHandler = new articleFormsHandler("https://wt.kpi.fei.tuke.sk/api");
                 }
-                window.artFrmHandler.assignFormAndArticle("articleForm", "hiddenElm", artIdFromHash, offsetFromHash, totalCountFromHash/*, commentPage, pageCount*/);
+                window.artFrmHandler.assignFormAndArticle("articleForm", "hiddenElm", artIdFromHash, offsetFromHash, totalCountFromHash/*, sort, pageCount*/);
             }else{
                 responseJSON.backLink = `#articles/${(parseInt(offsetFromHash)+20)/20}/${Math.ceil(totalCountFromHash/20)}`;
                 responseJSON.editLink = `#artEdit/${responseJSON.id}/${offsetFromHash}/${totalCountFromHash}`;
@@ -197,8 +192,7 @@ function fetchAndProcessArticle(targetElm, artIdFromHash, offsetFromHash, totalC
                     Mustache.render(
                         document.getElementById("template-article").innerHTML, responseJSON
                     );
-                responseJSON.tags[responseJSON.tags.length] = 'sluchadla';
-
+                    responseJSON.tags[responseJSON.tags.length] = 'sluchadla';
                 console.log(responseJSON);
                 window.location.hash = `#artComments/${responseJSON.id}/${offsetFromHash}/${totalCountFromHash}/${commentPage}/${pageCount}`;
             }

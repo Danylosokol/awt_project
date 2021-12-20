@@ -273,7 +273,7 @@ header a:active, footer a:hover, article a:hover {
     color: black;
     height: auto;
     margin: 1.5rem;
-    padding: 1em 1em 2em 3rem;
+    padding: 1em 1em 1em 3rem;
     transition-duration: 1s;
     transition-property: all;
     width: 50%;
@@ -881,6 +881,7 @@ label[for=content]{
     white-space: nowrap;
     width: 100%;
     word-wrap: break-word;
+    font-size: 1rem;
 }
 
 .contentOfArticle *{
@@ -894,6 +895,7 @@ label[for=content]{
     text-overflow: ellipsis;
     width: 100%;
     word-wrap: break-word;
+    font-size: 1rem;
 }
 
 .g-signin2{
